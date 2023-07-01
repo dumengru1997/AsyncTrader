@@ -1,0 +1,17 @@
+Extract the strategy logic from the following pages and create a quantitative trading strategy,
+then backtest the strategy: https://en.wikipedia.org/wiki/MACD
+
+---
+
+Strategy Config:
+
+{
+    "user_data_dir": "user_data",
+    "exchange": "binance",
+    "trading_mode": "futures",
+    "pairs": "BTC/USDT:USDT",
+    "timeframe": "5m",
+    "timerange": "20230101-",
+    "dry_run": true,
+    "add_timeframes": "15m, 30m"
+}
