@@ -1,0 +1,14 @@
+下载数据, 策略回测, 然后进行参数优化
+
+
+
+---
+
+Strategy Config:
+
+{
+    "vt_symbol": "IF2309.CFFEX",
+    "interval": "1m",
+    "timerange": "20230101-",
+    "dry_run": true
+}

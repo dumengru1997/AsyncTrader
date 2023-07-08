@@ -40,7 +40,7 @@ class FreqtradeToolkit(BaseToolkit):
             DataDownloadTool(),
             StrategyBacktestTool(),
             StrategyOptimizationTool(),
-            # TradeSimulationTool(),
-            # LiveTradeExecutionTool(),
+            TradeSimulationTool(),
+            LiveTradeExecutionTool(),
             StrategyCreationTool()
         ]

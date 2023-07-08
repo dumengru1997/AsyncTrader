@@ -1,6 +1,5 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 from pydantic import Extra, Field, root_validator
-
 
 from langchain.chains.llm import LLMChain
 from langchain.memory.buffer import ConversationBufferMemory
@@ -13,15 +12,11 @@ from langchain.schema import (
     LLMResult,
 )
 
+from trading_system.trading_prompts import FUNCTIONS_Chain_PROMPT
 
-template = """Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.
-
-{history}
-Human: {input}
-Chatbot:"""
 
 FUNCTIONS_PROMPT = PromptTemplate(
-    input_variables=["history", "input"], template=template
+    input_variables=["history", "input"], template=FUNCTIONS_Chain_PROMPT
 )
 
 
@@ -76,7 +71,7 @@ class FunctionsChain(LLMChain):
         return self.create_outputs(self.chat_response)[0]
 
 
-def functions_chain_to_functions_call(functions_chain: FunctionsChain):
+def functions_chain_to_functions_call(functions_chain: FunctionsChain) -> Union[None, Dict[str, str]]:
     """ input `FunctionsChain`, output `function_call`"""
     gen: Generation = functions_chain.chat_response.generations[0][0]
     if hasattr(gen, "message") and hasattr(gen.message, "additional_kwargs") and gen.message.additional_kwargs.get("function_call"):

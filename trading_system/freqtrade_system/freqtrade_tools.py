@@ -16,7 +16,7 @@ from trading_system.utilities import print_red
 from trading_system.functions_chain import FunctionsChain
 
 from trading_system.freqtrade_system.freqtrade_functions import FREQTRADE_COMMANDS
-from trading_system.freqtrade_system.freqtrade_prompt import STRATEGY_CREATE
+from trading_system.freqtrade_system.freqtrade_prompts import STRATEGY_CREATE
 from trading_system.freqtrade_system.freqtrade_commands import FreqtradeCommands
 
 
@@ -199,7 +199,7 @@ class StrategyBacktestTool(FreqtradeBaseTool):
                     input_stname = ""
             FreqtradeBaseTool.fc.start_strategy_update(input_stname)
             FreqtradeBaseTool.fc.start_backtesting(input_stname)
-            # FreqtradeBaseTool.fc.start_backtesting_show()
+            FreqtradeBaseTool.fc.start_backtesting_show()
         return "The strategy backtest is complete. "
 
 
@@ -230,29 +230,29 @@ class StrategyOptimizationTool(FreqtradeBaseTool):
 
 
 class TradeSimulationTool(FreqtradeBaseTool):
-    """ After starting the trading program, the program will block, and this function is not provided """
+    """  """
     name = "trade_simulation"
     description = "Start simulated trading on the basis of Freqtrade system."
 
     def _run(self, input_str: str, run_manager: Optional[CallbackManagerForToolRun] = None) -> str:
-        # df_stname = FreqtradeBaseTool.fc.start_list_strategies()
-        # if df_stname.empty:
-        #     print_red("No strategy. You need create a new strategy")
-        # else:
-        #     input_stname = ""
-        #     if not FreqtradeBaseTool.return_direct:
-        #         input_stname = FreqtradeBaseTool.strategy_name
-        #     while input_stname:
-        #         input_stname = input("Enter the name of strategy: ").strip()
-        #         if input_stname not in df_stname["strategy_name"].tolist():
-        #             input_stname = ""
-        #     FreqtradeBaseTool.fc.start_trading(input_stname)
+        df_stname = FreqtradeBaseTool.fc.start_list_strategies()
+        if df_stname.empty:
+            print_red("No strategy. You need create a new strategy")
+        else:
+            input_stname = ""
+            if not FreqtradeBaseTool.return_direct:
+                input_stname = FreqtradeBaseTool.strategy_name
+            while input_stname:
+                input_stname = input("Enter the name of strategy: ").strip()
+                if input_stname not in df_stname["strategy_name"].tolist():
+                    input_stname = ""
+            FreqtradeBaseTool.fc.start_trading(input_stname)
 
         return ""
 
 
 class LiveTradeExecutionTool(FreqtradeBaseTool):
-    """ After starting the trading program, the program will block, and this function is not provided """
+    """  """
     name = "trade_simulation"
     description = "Start real trading on the basis of Freqtrade system. "
 

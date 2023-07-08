@@ -29,7 +29,22 @@ def print_red(input_str: str):
 
 
 def underscore_to_camel(s):
-    """  """
+    """ Change the underline nomenclature to the big hump nomenclature """
     components = s.split('_')
     return ''.join(x.title() for x in components)
 
+
+def camel_to_underscore(s):
+    """ Convert the big hump naming to underline naming """
+    result = ''
+    for char in s:
+        if char.isupper():
+            result += '_' + char.lower()
+        else:
+            result += char
+    return result.lstrip('_')
+
+
+if __name__ == '__main__':
+    result = camel_to_underscore("AutoStrategy")
+    print(result)

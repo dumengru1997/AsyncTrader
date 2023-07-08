@@ -11,7 +11,7 @@ def retrieval(docs_path: str):
     loader = DirectoryLoader(docs_path, glob="**/*.md")
     docs = loader.load()
 
-    text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
+    text_splitter = CharacterTextSplitter(chunk_size=3000, chunk_overlap=100)
     documents = text_splitter.split_documents(docs)
 
     embeddings = OpenAIEmbeddings()

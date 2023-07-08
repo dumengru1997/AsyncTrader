@@ -53,9 +53,7 @@ class FreqtradeCommands:
     def start_create_userdir(self, reset=False) -> None:
         """
         Create "user_data" directory to contain user data strategies, hyperopt, ...)
-        :param user_data_dir: Directory path for user data
         :param reset: Whether to overwrite existing files
-        :return: None
         """
         from freqtrade.commands.deploy_commands import create_userdata_dir, copy_sample_files
 
@@ -101,7 +99,8 @@ class FreqtradeCommands:
             config["pairs"] = self.pairs
             config["timerange"] = self.timerange
             config["timeframes"] = self.add_timeframes.copy()
-            config["timeframes"].append(config["timeframe"])
+            if config["timeframe"] not in config["timeframes"]:
+                config["timeframes"].append(config["timeframe"])
 
             # default params
             config["dataformat_ohlcv"] = "json"
@@ -137,7 +136,6 @@ class FreqtradeCommands:
 
     def start_new_strategy(self, strategy_name: str, subtemplate: str = "full") -> None:
         """
-
         @param strategy_name:
         @param subtemplate:
         """
@@ -186,13 +184,7 @@ class FreqtradeCommands:
         strategy_path.write_text(strategy_text)
 
     def start_download_data(self) -> None:
-        """
-        @param days: 下载时间
-        @param timeframes: 数据时间周期
-        @param config_file: 配置文件路径
-        @param datadir: 数据保存路径
-        @return:
-        """
+        """ """
         from freqtrade.data.history.history_utils import (
             TimeRange,
             logger,
@@ -357,9 +349,7 @@ class FreqtradeCommands:
 
     def start_backtesting(self, strategy_name: str) -> None:
         """
-        @param pairs:
         @param strategy_name:
-        @param days:
         """
         # Import here to avoid loading backtesting module when it's not used
         from freqtrade.optimize.backtesting import Backtesting
@@ -398,8 +388,6 @@ class FreqtradeCommands:
     def start_hyperopt(self, strategy_name: str, epochs: int) -> None:
         """
         Start hyperopt script
-        :param args: Cli args from Arguments()
-        :return: None
         """
         from freqtrade.commands.optimize_commands import logger, logging
         # Import here to avoid loading hyperopt module when it's not used
@@ -487,9 +475,7 @@ class FreqtradeCommands:
             )
 
     def start_hyperopt_show(self, index: int = -1) -> None:
-        """
-        Show details of a hyperopt epoch previously evaluated
-        """
+        """ Show details of a hyperopt epoch previously evaluated """
         from freqtrade.optimize.hyperopt_tools import HyperoptTools
         from freqtrade.commands.hyperopt_commands import logger, get_latest_hyperopt_file, show_backtest_result
 
@@ -538,8 +524,6 @@ class FreqtradeCommands:
     def start_list_exchanges(self) -> None:
         """
         Print available exchanges
-        :param args: Cli args from Arguments()
-        :return: None
         """
         from freqtrade.commands.list_commands import list_available_exchanges, ValidExchangesType, tabulate
 
@@ -587,9 +571,7 @@ class FreqtradeCommands:
     def start_list_markets(self, pairs_only: bool = False) -> None:
         """
         Print pairs/markets on the exchange
-        :param args: Cli args from Arguments()
         :param pairs_only: if True print only pairs, otherwise print all instruments (markets)
-        :return: None
         """
         from freqtrade.commands.list_commands import (
             RunMode,
@@ -815,8 +797,6 @@ class FreqtradeCommands:
     def start_strategy_update(self, strategies: str) -> None:
         """
         Start the strategy updating script
-        :param args: Cli args from Arguments()
-        :return: None
         """
         from freqtrade.commands.strategy_utils_commands import sys, RunMode, StrategyResolver, start_conversion
 
@@ -977,10 +957,6 @@ pip install -r requirements-hyperopt.txt
 pip install -r requirements-plot
 pip install -r requirements-freqai.txt
 pip install -r requirements-freqai-rl
-
-
-freqtrade strategy-updater --userdir bbb
-freqtrade backtesting --strategy my_strategy --userdir bbb
 """
 
 
