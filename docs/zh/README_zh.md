@@ -1,7 +1,7 @@
 # AsyncTrader
 [English](../../README.md)
 
-用ChatGPT自动构建量化交易系统, 听起来很有趣.
+用ChatGPT自动运行量化交易系统, 听起来很有趣.
 
 ## 项目介绍
 利用AGI(Artificial general intelligence)创建一个完整的量化交易系统仍旧是十分困难的, 然而幸运的是, 尝试让llm学会使用现有的成熟的量化交易系统似乎具有可行性, 我们正在尝试做这件事情.
@@ -40,7 +40,7 @@
 conda create -n env_trader python=3.10
 ```
 
-### Freqtrade
+### [Freqtrade](freqtrade_system_zh.md)
 
 1. clone项目到本地: git clone https://github.com/freqtrade/freqtrade.git
 2. 进入项目目录: cd \path\freqtrade 
@@ -54,7 +54,7 @@ pip install -r requirements-hyperopt.txt
 
 安装参考: https://www.freqtrade.io/en/stable/windows_installation/
 
-### AkShare
+### [AkShare](akshare_system_zh.md)
 
 1. clone项目到本地: git clone https://github.com/akfamily/akshare.git
 2. 指定安装内容
@@ -64,7 +64,7 @@ pip install akshare
 
 安装参考: https://akshare.akfamily.xyz/installation.html
 
-### Vnpy
+### [Vnpy](vnpy_system_zh.md)
 
 1. clone项目到本地: git clone https://github.com/vnpy/vnpy.git
 2. 指定安装内容

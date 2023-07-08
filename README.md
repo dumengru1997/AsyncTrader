@@ -1,7 +1,7 @@
 # AsyncTrader 
 [Chinese](docs/zh/README_zh.md)
 
-Building quantitative trading systems automatically with ChatGPT sounds pretty cool, doesn't it?
+Running quantitative trading systems automatically with ChatGPT sounds pretty cool, doesn't it?
 
 ## Project Introduction
 Building a complete quantitative trading system using AGI (Artificial General Intelligence) is still quite challenging. However, fortunately, there seems to be a feasible approach in teaching llm to use existing mature quantitative trading systems, and we are working on it.
@@ -40,7 +40,7 @@ It is recommended to create a Python virtual environment (optional)
 conda create -n env_trader python=3.10
 ```
 
-### Freqtrade
+### [Freqtrade](docs/freqtrade_system.md)
 
 1. Clone the project locally: git clone https://github.com/freqtrade/freqtrade.git
 2. Enter the project directory: cd \path\freqtrade 
@@ -54,7 +54,7 @@ pip install -r requirements-hyperopt.txt
 
 Installation reference: https://www.freqtrade.io/en/stable/windows_installation/
 
-### AkShare
+### [AkShare](docs/akshare_system.md)
 
 1. Clone the project locally: git clone https://github.com/akfamily/akshare.git
 2. Specify the content for installation
@@ -64,7 +64,7 @@ pip install akshare
 
 Installation reference: https://akshare.akfamily.xyz/installation.html
 
-### Vnpy
+### [Vnpy](docs/vnpy_system.md)
 
 1. Clone the project locally: git clone https://github.com/vnpy/vnpy.git
 2. Specify the content for installation
