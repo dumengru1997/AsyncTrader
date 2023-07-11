@@ -55,7 +55,7 @@ if __name__ == '__main__':
 ### Interactive Control Mode
 1. Write a description in `start_project/trader_freqtrade.txt` to extract the strategy logic from the web page.
 ```markdown
-I want to create a double moving average strategy
+I want to create a double moving average strategy, then backtest the strategy
 ```
 2. Add the following code to `start_ft_app.py` and run:
 ```python
