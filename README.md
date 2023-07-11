@@ -28,17 +28,18 @@ With the control flow of langchain, we use ChatGPT to automatically write and ba
 
 ## Basic Environment Installation
 1. Install miniconda/anaconda: https://docs.conda.io/en/latest/miniconda.html
-2. Install langchain: https://python.langchain.com/docs/get_started/installation
-3. Download the `AsyncTrader` project code locally
-4. Modify the `trading_system/base.py` file, add `OPENAI_API_KEY`, and select `gpt3.5/4`
-
-## Select Project for Installation
-
-It is recommended to create a Python virtual environment (optional)
-
+2. It is recommended to create a Python virtual environment (optional)
 ```markdown
 conda create -n env_trader python=3.10
 ```
+3. Download the `AsyncTrader` project code locally 
+```markdown
+cd AsyncTrader/
+pip install -r requirements.txt
+```
+4. Modify the `trading_system/base.py` file, add `OPENAI_API_KEY`, and select `gpt3.5/4`
+
+## Select Project for Installation
 
 ### [Freqtrade](docs/freqtrade_system.md)
 

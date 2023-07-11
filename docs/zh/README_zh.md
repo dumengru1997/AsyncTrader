@@ -29,16 +29,18 @@
 
 ## 基本环境安装
 1. 安装miniconda/anaconda: https://docs.conda.io/en/latest/miniconda.html
-2. 安装langchain: https://python.langchain.com/docs/get_started/installation
-3. 下载AsyncTrader项目代码到本地 
-4. 修改`trading_system/base.py`文件, 添加`OPENAI_API_KEY`和选择`gpt3.5/4`
-
-## 选择安装项目
-
-推荐创建ython虚拟环境(可选项)
+2. 推荐创建Python虚拟环境(可选项)
 ```markdown
 conda create -n env_trader python=3.10
 ```
+3. 下载AsyncTrader项目代码到本地
+```markdown
+cd AsyncTrader
+pip install -r requirements.txt
+```
+4. 修改`trading_system/base.py`文件, 添加`OPENAI_API_KEY`和选择`gpt3.5/4`
+
+## 选择安装项目
 
 ### [Freqtrade](freqtrade_system_zh.md)
 
