@@ -1,4 +1,4 @@
-from trading_system.freqtrade_system.start_freqtrade import start_stepwise, start_stepwise
+from trading_system.freqtrade_system.start_freqtrade import start_auto, start_stepwise, start_stepwise
 from trading_system.trading_tools import web_strategy_tool
 
 
